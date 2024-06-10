@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public enum EnemyType
+    {
+        Fire,
+        Ice,
+        Stone
+    }
+
+    public EnemyType enemyType;
     public float health = 99.0f;
 
     private Animator _animator;

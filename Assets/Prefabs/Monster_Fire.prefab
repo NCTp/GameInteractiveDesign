@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6439215405724245855}
   - component: {fileID: 4208061262001754184}
   m_Layer: 0
-  m_Name: Monster
+  m_Name: Monster_Fire
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07ea381af8a061e4d87c373ed3a8570f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyType: 0
   health: 100
 --- !u!61 &6439215405724245855
 BoxCollider2D:
