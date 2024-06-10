@@ -99,8 +99,9 @@ MonoBehaviour:
   projectile_Normal: {fileID: -5000444865999255234, guid: bc7ef686ba211e74486f880752e78a0b, type: 3}
   projectile_Thunder: {fileID: 282039205143631357, guid: 0caace76ecbc303439a67f0556646380, type: 3}
   projectile_FireBall: {fileID: 6943048155628017265, guid: 95ca291e48c5e9d4fa55b630ac0382a9, type: 3}
-  projectile_Stone: {fileID: 6943048155628017265, guid: 95ca291e48c5e9d4fa55b630ac0382a9, type: 3}
+  projectile_StoneBall: {fileID: 2529005823826515454, guid: 87bc52229b913e94aa74eadc5ae578ab, type: 3}
   shootTime: 1
+  isShootNormalSkill: 0
 --- !u!95 &3498884324314341168
 Animator:
   serializedVersion: 3

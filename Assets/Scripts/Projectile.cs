@@ -13,7 +13,7 @@ public class Projectile : MonoBehaviour
         StoneBall
     }
     public float speed = 5.0f;
-    public float damage = 100.0f;
+    public float damage = 50.0f;
     public SkillType skillType;
 
     public GameObject thunderBoltHitEffect;
@@ -56,29 +56,38 @@ public class Projectile : MonoBehaviour
             Enemy _enemy = other.GetComponent<Enemy>();
             if (skillType == SkillType.Thunder)
             {
-                _enemy.health -= damage;
+                if (_enemy.enemyType == Enemy.EnemyType.Fire)
+                    _enemy.health -= damage * 2.0f;
+                else 
+                    _enemy.health -= damage;
                 Debug.Log("Enemy Detected_Thunder");
                 Instantiate(thunderBoltHitEffect, transform.position, Quaternion.identity);
                 DestroyMyself();
             }
             else if (skillType == SkillType.FireBall)
             {
-                _enemy.health -= damage;
+                if (_enemy.enemyType == Enemy.EnemyType.Ice)
+                    _enemy.health -= damage * 2.0f;
+                else 
+                    _enemy.health -= damage;
                 Debug.Log("Enemy Detected_FireBall");
                 Instantiate(fireBallHitEffect, transform.position, Quaternion.identity);
                 DestroyMyself();
             }
             else if (skillType == SkillType.StoneBall)
             {
-                _enemy.health -= damage;
-                Debug.Log("Enemy Detected_FireBall");
+                if (_enemy.enemyType == Enemy.EnemyType.Stone)
+                    _enemy.health -= damage * 2.0f;
+                else 
+                    _enemy.health -= damage;
+                Debug.Log("Enemy Detected_StoneBall");
                 Instantiate(stoneBallHitEffect, transform.position, Quaternion.identity);
                 DestroyMyself();
             }
             else if (skillType == SkillType.Normal)
             {
                 _enemy.health -= damage;
-                Debug.Log("Enemy Detected_FireBall");
+                Debug.Log("Enemy Detected_Normal");
                 Instantiate(normalHitEffect, transform.position, Quaternion.identity);
                 DestroyMyself();
             }

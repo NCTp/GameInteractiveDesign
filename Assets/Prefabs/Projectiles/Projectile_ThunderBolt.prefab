@@ -57,15 +57,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5969260129165986981, guid: 95ca291e48c5e9d4fa55b630ac0382a9, type: 3}
       propertyPath: m_Name
-      value: ThunderBolt
+      value: Projectile_ThunderBolt
       objectReference: {fileID: 0}
     - target: {fileID: 6943048155628017265, guid: 95ca291e48c5e9d4fa55b630ac0382a9, type: 3}
       propertyPath: speed
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6943048155628017265, guid: 95ca291e48c5e9d4fa55b630ac0382a9, type: 3}
       propertyPath: damage
-      value: 50
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 6943048155628017265, guid: 95ca291e48c5e9d4fa55b630ac0382a9, type: 3}
       propertyPath: skillType

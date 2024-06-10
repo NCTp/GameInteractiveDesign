@@ -13,6 +13,7 @@ public class TemplateReviewPanel : MonoBehaviour
     [SerializeField] private Button _previous;
     [SerializeField] private Button _next;
     [SerializeField] private Button _remove;
+    [SerializeField] private Button _removeAll;
     [SerializeField] private TMP_Dropdown _transitionStep;
 
     private List<string> _templateNames;
@@ -27,6 +28,7 @@ public class TemplateReviewPanel : MonoBehaviour
         _previous.onClick.AddListener(() => ChooseTemplateIndex(-1));
         _next.onClick.AddListener(() => ChooseTemplateIndex(1));
         _remove.onClick.AddListener(RemoveTemplate);
+        _removeAll.onClick.AddListener(RemoveAll);
         _templateNameFromList.onValueChanged.AddListener(ChooseTemplateToShow);
         _transitionStep.options = new List<TMP_Dropdown.OptionData>()
         {
@@ -124,8 +126,29 @@ public class TemplateReviewPanel : MonoBehaviour
         {
             ChooseTemplateToShow(0);
         }
-
-
         UpdateState();
+    }
+    private void RemoveAll()
+    {
+        Debug.Log("RemoveAll");
+        while (_currentTemplateIndex != 0)
+        {
+            IEnumerable<RecognitionManager.GestureTemplate> templatesByName = _templates.ProceedTemplates
+                .Where(template => template.Name == _currentTemplateName).ToList();
+            RecognitionManager.GestureTemplate templateToRemove = templatesByName
+                .ElementAt(_currentTemplateIndex);
+            int indexToRemove = _templates.ProceedTemplates.IndexOf(templateToRemove);
+            _templates.RemoveAtIndex(indexToRemove);
+            if (_currentTemplateIndex != 0)
+            {
+                _currentTemplateIndex--;
+            }
+
+            if (templatesByName.Count() == 1)
+            {
+                ChooseTemplateToShow(0);
+            }
+            UpdateState();
+        }
     }
 }

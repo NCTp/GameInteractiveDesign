@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  damage: 1
+  damage: 10
   skillType: 0
   thunderBoltHitEffect: {fileID: 8665887145919979887, guid: 62c5bb834bcfba547a3ec6582a16cdf5, type: 3}
   fireBallHitEffect: {fileID: 5362104330361124741, guid: af00b9166cd72c84bab95540174b92f8, type: 3}
@@ -78,7 +78,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
 --- !u!95 &6812586000699468454
 Animator:

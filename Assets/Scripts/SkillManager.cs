@@ -7,7 +7,8 @@ public class SkillManager : MonoBehaviour
     // 1 T 2 F 3 S 4 N
     public int[] skills = {0,0,0,0,0};
     public Queue<int> skillQueue = new Queue<int>();
-    public float skillCoolTime = 1.0f;
+    public float skillGenRate = 1.0f;
+    private float _skillCoolTime = 0.0f;
     private static SkillManager instance = null;
     private SkillPanel _skillPanel;
 
@@ -98,10 +99,16 @@ public class SkillManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (_skillCoolTime >= skillGenRate)
         {
             AddSkill();
+            _skillCoolTime = 0.0f;
         }
-        //PrintSkills();
+        else
+        {
+            _skillCoolTime += Time.deltaTime;
+        }
+        
+        PrintSkills();
     }
 }

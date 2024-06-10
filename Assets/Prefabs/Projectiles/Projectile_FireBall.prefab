@@ -34,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5000444865999255234, guid: bc7ef686ba211e74486f880752e78a0b, type: 3}
       propertyPath: damage
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: -5000444865999255234, guid: bc7ef686ba211e74486f880752e78a0b, type: 3}
       propertyPath: skillType
@@ -42,7 +42,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 583042530766263274, guid: bc7ef686ba211e74486f880752e78a0b, type: 3}
       propertyPath: m_Name
-      value: FireBall
+      value: Projectile_FireBall
       objectReference: {fileID: 0}
     - target: {fileID: 1319205570394086202, guid: bc7ef686ba211e74486f880752e78a0b, type: 3}
       propertyPath: m_RootOrder

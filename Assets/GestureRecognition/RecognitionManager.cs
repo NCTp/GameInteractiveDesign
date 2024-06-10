@@ -25,6 +25,7 @@ public class RecognitionManager : MonoBehaviour
     private static readonly DollarPRecognizer _dollarPRecognizer = new DollarPRecognizer();
     private IRecognizer _currentRecognizer = _dollarOneRecognizer;
     private RecognizerState _state = RecognizerState.RECOGNITION;
+    private string _recogLogs = " ";
 
     public Character char1;
     public Character char2;
@@ -51,6 +52,7 @@ public class RecognitionManager : MonoBehaviour
 
     public void StartGame()
     {
+        GameManager.Instance.isGameStart = true;
         Debug.Log("Game Start!");
     }
 
@@ -125,69 +127,77 @@ public class RecognitionManager : MonoBehaviour
             if (_currentRecognizer is DollarOneRecognizer)
             {
                 resultText = $"Recognized: {result.Item1}, Score: {result.Item2}";
+                _recogLogs += resultText + "\n";
             }
             else if (_currentRecognizer is DollarPRecognizer)
             {
                 resultText = $"Recognized: {result.Item1}, Distance: {result.Item2}";
+                _recogLogs += resultText + "\n";
             }
 
-            _recognitionResult.text = resultText;
-            Icon.IconType _iconType = Icon.IconType.Thunder; // 아이콘 타입 저장
-            int skillRecog = 0; // 인식한 스킬을 인트로 입력받기 위한 변수
-            int count = 0;
-            bool isSkillFound = false;
-            bool isIconFound = false;
-            if (result.Item1 == "Thunder")
+            if (char1.isReadyToCast)
             {
-                skillRecog = 1;
-                _iconType = Icon.IconType.Thunder;
-            }
-            else if (result.Item1 == "FireBall")
-            {
-                skillRecog = 2;
-                _iconType = Icon.IconType.FireBall;
-            }
-            else if (result.Item1 == "StoneBall")
-            {
-                skillRecog = 3;
-                _iconType = Icon.IconType.StoneBall;
-            }
-            Debug.Log(count);
-
-            while (!isSkillFound && count < 5)
-            {
-                if (SkillManager.Instance.skills[count] == skillRecog)
+                _recognitionResult.text = resultText;
+                Icon.IconType _iconType = Icon.IconType.Thunder; // 아이콘 타입 저장
+                int skillRecog = 0; // 인식한 스킬을 인트로 입력받기 위한 변수
+                int count = 0;
+                bool isSkillFound = false;
+                bool isIconFound = false;
+                if (result.Item1 == "Thunder")
                 {
-                    //count = 0;
-                    isSkillFound = true;
-                    char1.Skill(result.Item1);
-                    SkillManager.Instance.skills[count] = 0;
-                    foreach (Transform child in _skillPanel.transform)
+                    skillRecog = 1;
+                    _iconType = Icon.IconType.Thunder;
+                }
+                else if (result.Item1 == "FireBall")
+                {
+                    skillRecog = 2;
+                    _iconType = Icon.IconType.FireBall;
+                }
+                else if (result.Item1 == "StoneBall")
+                {
+                    skillRecog = 3;
+                    _iconType = Icon.IconType.StoneBall;
+                }
+
+                Debug.Log(count);
+
+                while (!isSkillFound && count < 5)
+                {
+                    if (SkillManager.Instance.skills[count] == skillRecog)
                     {
-                        if (child.GetComponent<Icon>().iconType == _iconType)
+                        //count = 0;
+                        isSkillFound = true;
+                        char1.Skill(result.Item1);
+                        SkillManager.Instance.skills[count] = 0;
+                        foreach (Transform child in _skillPanel.transform)
                         {
-                            Destroy(child.gameObject);
-                            break;
+                            if (child.GetComponent<Icon>().iconType == _iconType)
+                            {
+                                Destroy(child.gameObject);
+                                break;
+                            }
                         }
+
                     }
-                    
+                    else
+                    {
+                        Debug.Log("No Skill Ready");
+                    }
+
+                    count++;
                 }
-                else
-                {
-                    Debug.Log("No Skill Ready");
-                    //count = 0;
-                }
-                count++;
+
+                //_skillPanel.DeleteSkillIcon(result.Item1);
+                //char2.Skill(result.Item1);
+                Debug.Log(resultText);
             }
-            //_skillPanel.DeleteSkillIcon(result.Item1);
-            //char2.Skill(result.Item1);
-            Debug.Log(resultText);
         }
+
     }
-    
 
     private void OnApplicationQuit()
     {
+        LogOut.Instance.WriteLog(_recogLogs);
         _templates.Save();
     }
 }

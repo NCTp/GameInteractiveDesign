@@ -7,12 +7,13 @@ public class Character : MonoBehaviour
     public Projectile projectile_Normal;
     public Projectile projectile_Thunder;
     public Projectile projectile_FireBall;
-    public Projectile projectile_Stone;
+    public Projectile projectile_StoneBall;
 
     public float shootTime = 1.0f;
     private float shootReadyTime = 0.0f;
 
     public bool isShootNormalSkill = false;
+    public bool isReadyToCast = true;
 
     private Animator _animator;
     public void Skill(string skillName)
@@ -21,29 +22,40 @@ public class Character : MonoBehaviour
         {
             case ("Thunder"):
                 _animator.SetBool("isCasting", true);
+                isReadyToCast = false;
                 //Projectile _projectile_Thunder = Instantiate(projectile_Thunder, transform.position, transform.rotation);
                 break;
             case ("FireBall"):
                 _animator.SetBool("isCastingFireBall", true);
+                isReadyToCast = false;
                 break;
-            case ("Stone"):
-                Projectile _projectile_Stone = Instantiate(projectile_FireBall, transform.position, transform.rotation);
+            case ("StoneBall"):
+                _animator.SetBool("isCastingStoneBall", true);
+                isReadyToCast = false;
+                //Projectile _projectile_Stone = Instantiate(projectile_FireBall, transform.position, transform.rotation);
                 break;
             default:
                 break;
-                
         }
     }
 
     public void Skill_Thunder()
     {
         Projectile _projectile_Thunder = Instantiate(projectile_Thunder, transform.position, transform.rotation);
+        isReadyToCast = true;
         _animator.SetBool("isCasting", false);
     }
     public void Skill_FireBall()
     {
         Projectile _projectile_FireBall = Instantiate(projectile_FireBall, transform.position, transform.rotation);
+        isReadyToCast = true;
         _animator.SetBool("isCastingFireBall", false);
+    }
+    public void Skill_StoneBall()
+    {
+        Projectile _projectile_StoneBall = Instantiate(projectile_StoneBall, transform.position, transform.rotation);
+        isReadyToCast = true;
+        _animator.SetBool("isCastingStoneBall", false);
     }
 
     public void NormalSkill()
