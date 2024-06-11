@@ -8,3 +8,8 @@ The Techinique base on https://github.com/kasiula03/2D-Gesture-Recognition
 - pc로그는 Assets/ResultLogs에 남습니다.   
 - 데모 화이팅   
 - 문제 있으면 말씀해주세요.   
+
+# 테스트 과정   
+- 시연하는 분 오시면, 먼저 Template Mode에서 스킬 당 5번씩 제스쳐 매핑을 실시합니다.   
+- 매핑이 완료되면, Customize창을 끄고 Start버튼 눌러서 게임을 시연합니다.   
+- 게임 시연이 완료되면, 담당자가 템플릿을 삭제하고 다음 시연을 기다립니다.   
