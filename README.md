@@ -13,3 +13,11 @@ The Techinique base on https://github.com/kasiula03/2D-Gesture-Recognition
 - 시연하는 분 오시면, 먼저 Template Mode에서 스킬 당 5번씩 제스쳐 매핑을 실시합니다.   
 - 매핑이 완료되면, Customize창을 끄고 Start버튼 눌러서 게임을 시연합니다.   
 - 게임 시연이 완료되면, 담당자가 템플릿을 삭제하고 다음 시연을 기다립니다.   
+
+# 스킬 템플릿명   
+- 불속성 스킬 : FireBall   
+- 번개속성 스킬 : Thunder   
+- 땅속성 스킬 : StoneBall   
+
+# 게임 룰   
+- 속성에 맞는 스킬을 사용해서 최대한 오래 버티기.   
