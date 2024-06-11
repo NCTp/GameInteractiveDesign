@@ -196,7 +196,7 @@ RectTransform:
   m_Children:
   - {fileID: 449207893}
   m_Father: {fileID: 2264522516007478316}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -392,7 +392,7 @@ RectTransform:
   m_Children:
   - {fileID: 506122573}
   m_Father: {fileID: 2264522516007478316}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -607,7 +607,7 @@ RectTransform:
   m_Children:
   - {fileID: 7401486395916158242}
   m_Father: {fileID: 2264522516007478316}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -4105,7 +4105,7 @@ RectTransform:
   - {fileID: 2264522515835187493}
   - {fileID: 2264522514755682117}
   m_Father: {fileID: 2264522516007478316}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4254,14 +4254,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 3872799116926186992}
-  m_RootOrder: 6
+  m_Father: {fileID: 2264522516007478316}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 495.80005, y: 40.40576}
-  m_SizeDelta: {x: 380, y: 30}
-  m_Pivot: {x: 0.5, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -151, y: -10}
+  m_SizeDelta: {x: -320, y: 30}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &2264522515343199530
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4299,8 +4299,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278200063
+  m_fontColor: {r: 1, g: 0.15032196, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6128,6 +6128,7 @@ RectTransform:
   m_Children:
   - {fileID: 3872799116926186992}
   - {fileID: 2264522514393365235}
+  - {fileID: 2264522515343199540}
   - {fileID: 2264522515243499678}
   - {fileID: 614741766}
   - {fileID: 1018267940}
@@ -6464,7 +6465,6 @@ RectTransform:
   - {fileID: 2264522514802389771}
   - {fileID: 2264522516056583388}
   - {fileID: 2264522515802863062}
-  - {fileID: 2264522515343199540}
   m_Father: {fileID: 2264522516007478316}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
