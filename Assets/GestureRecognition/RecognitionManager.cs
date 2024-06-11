@@ -26,6 +26,7 @@ public class RecognitionManager : MonoBehaviour
     private IRecognizer _currentRecognizer = _dollarOneRecognizer;
     private RecognizerState _state = RecognizerState.RECOGNITION;
     private string _recogLogs = " ";
+    private bool _isCustomPanelOpened = false;
 
     public Character char1;
     public Character char2;
@@ -58,8 +59,18 @@ public class RecognitionManager : MonoBehaviour
 
     public void CustomizeModeOpen()
     {
-        _customizePanels.SetActive(true);
-        Debug.Log("Customization Start!");
+        if(!_isCustomPanelOpened)
+        {
+            _isCustomPanelOpened = true;
+            _customizePanels.SetActive(true);
+            Debug.Log("Customization Start!");
+        }
+        else if (_isCustomPanelOpened)
+        {
+            _isCustomPanelOpened = false;
+            _customizePanels.SetActive(false);
+            Debug.Log("Customization End!");
+        }
     }
 
     public void CustomizeModeClose()
